@@ -23,6 +23,7 @@ public class SuperList<E>{
 			return null;
 		return end.getValue();
 	}
+	//O(1) efficiency
 	public void add(E value){
 		size++;
 		ListNode<E> val = new ListNode<E>(value);
@@ -36,9 +37,11 @@ public class SuperList<E>{
 			end = val;
 		}
 	}
+	//O(1) efficiency
 	public void push(E value){
 		add(value);
 	}
+	//O(n) efficiency
 	public void add(int index, E value){
 		ListNode<E> val = new ListNode<E>(value);
 		if(index > size || index < 0){
@@ -77,6 +80,7 @@ public class SuperList<E>{
 			size++;
 		}
 	}
+	//O(1) efficiency
 	public E pop(){
 		if(size == 0){
 			throw new EmptyStackException();
@@ -98,6 +102,7 @@ public class SuperList<E>{
 			return val;
 		}
 	}
+	//O(1) efficiency
 	public E poll(){
 		if(size == 0){
 			return null;
@@ -146,17 +151,19 @@ public class SuperList<E>{
 			return returnVal;
 		}
 	}
-
+	//O(1) efficiency
 	public E peekStack(){
 		if(end != null)
 			return end.getValue();
 		return null;
 	}
+	//O(1) efficiency
 	public E peekQueue(){
 		if(root != null)
 			return root.getValue();
 		return null;
 	}
+	//O(n) efficiency
 	public E get(int index){
 		if(index >= size || index < 0){
 			throw new ArrayIndexOutOfBoundsException();
@@ -172,8 +179,6 @@ public class SuperList<E>{
 			return null;
 		}
 	}
-
-
 	public String toString(){
 		String str = "[";
 		ListNode<E> curr = root;
@@ -186,7 +191,7 @@ public class SuperList<E>{
 		str+="]";
 		return str;
 	}
-
+	//O(1) efficiency
 	public int size(){
 		return size;
 	}
@@ -195,11 +200,12 @@ public class SuperList<E>{
 			return true;
 		return false;
 	}
+	//O(1) efficiency
 	public void clear(){
 		root = null;
 		end = null;
 	}
-	//Fix countains, give a null at the if satment
+	//O(n) efficiency
 	public int contains(E val){
 		ListNode<E> curr = root;
 		for(int i = 0; i < size; i++){
@@ -210,6 +216,7 @@ public class SuperList<E>{
 		}
 		return -1;
 	}
+	
 	public class ListNode<E>{
 		private E value;
 		private ListNode<E> next;
